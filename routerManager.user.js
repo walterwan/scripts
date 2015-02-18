@@ -21,13 +21,18 @@
 
     function onReady() {
         scanUser()
-        intervalScan = setInterval(scanUser, rescanIntervel);
+        userScanInterval = setInterval(scanUser, rescanIntervel);
+        countdownInterval = setInterval(countDown, 1000);
         document.removeEventListener("DOMContentLoaded", onReady)
     }
     
-    //function countDown() {
-    //    console.log(count)
-    //}
+    function countDown() {
+        console.log('Rescan in ', count/1000, 'sec')
+        count = count - 1000
+        if (count == 0) {
+            count = rescanIntervel
+        }
+    }
 
     function onKeyDown(event) {
         if (!event.altKey) {
@@ -38,13 +43,13 @@
 
         if (pressedNum == 65) {
             scanUser()
-            console.log('hi')
-            // intervalScan = setInterval(scanUser, rescanIntervel);
+            // intervalScan = setInterval(scanUser, userScanInterval);
         }
         
         if (pressedNum == 83) {
             console.log('Auto Scan Stoped')
-            clearInterval(intervalScan)
+            clearInterval(userScanInterval)
+            clearInterval(countdownInterval)
         }
             
             
@@ -108,6 +113,7 @@
                 console.log('i = ', i, 'Bytes = ', byteDownloaded/1000000000, 'G', 'MAC = ', mac, 'WAN = ', wanNum)
             }
         }
+        count = rescanIntervel
     }
     
     function createArray(length) {
