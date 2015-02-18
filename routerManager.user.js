@@ -4,7 +4,7 @@
 // @description     Move high-usage user to a specific WAN
 // @match           http://10.6.16.1/admin/connected.cgi*
 // @run-at          document-start
-// @updateURL		https://raw.githubusercontent.com/walterwan/scripts/master/routerManager.js
+// @updateURL		https://raw.githubusercontent.com/walterwan/scripts/master/routerManager.user.js
 // @version         1.0
 // ==/UserScript==
 
