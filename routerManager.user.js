@@ -11,6 +11,7 @@
 (function () {
     window.addEventListener('keydown', onKeyDown)
     var rescanIntervel = 60000
+    var count = rescanIntervel
 
     if (document.readyState === 'interactive' || document.readyState === 'complete') {
         onReady()
@@ -23,6 +24,10 @@
         intervalScan = setInterval(scanUser, rescanIntervel);
         document.removeEventListener("DOMContentLoaded", onReady)
     }
+    
+    //function countDown() {
+    //    console.log(count)
+    //}
 
     function onKeyDown(event) {
         if (!event.altKey) {
@@ -30,7 +35,6 @@
         }
 
         pressedNum = event.keyCode
-        console.log(pressedNum)
 
         if (pressedNum == 65) {
             scanUser()
