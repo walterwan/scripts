@@ -38,6 +38,7 @@
 
         if (pressedNum == 65) {
             scanUser()
+            console.log('hi')
             // intervalScan = setInterval(scanUser, rescanIntervel);
         }
         
